@@ -14,107 +14,165 @@
             </symbol>
 
         </svg>
+        <div class="wrapper">
+            <header class="header py-3">
+                <div class="container-lg">
+                    <div class="d-flex align-items-center justify-content-between">
 
-        <header class="header py-3">
-            <div class="container">
-                <div class="d-flex align-items-center justify-content-between">
-
-                    <a class="logo d-flex align-items-center" href="#">
-                        <div class="azan me-2">Azan</div>
-                        <img class="icon" src="src/images/moon-star.svg" alt="moon-star">
-                    </a>
+                        <a class="logo d-flex align-items-center" href="#">
+                            <div class="azan me-2">Azan</div>
+                            <img class="icon" src="src/images/moon-star.svg" alt="moon-star">
+                        </a>
 
 
-                    <div class="d-flex align-items-center">
-                        <form class="me-2">
-                            <input class="search" type="search" placeholder="Write city" aria-label="Search">
-                        </form>
+                        <div class="d-flex align-items-center">
+                            <form class="me-2">
+                                <input class="search" type="search" placeholder="Write city" aria-label="Search">
+                            </form>
 
-                        <button class="setting-btn" type="button">
-                            <svg class="three-dots" width="20" height="20" fill="#fff">
-                               <use xlink:href="#setting"></use>
-                            </svg>
-                        </button>
+                            <button class="setting-btn" type="button">
+                                <svg class="three-dots" width="20" height="20" fill="#fff">
+                                    <use xlink:href="#setting"></use>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </header>
+            </header>
 
-        <main class="main">
-            <div class="container">
-                <div class="main__inner">
-                    <section class="setting-time py-4">
-                        <div class="container">
-                            <div class="d-flex">
-                                <div class="day me-5">26 June 2023</div>
-                                <ul class="d-flex">
-                                    <li>
-                                        <a class="link active" href="#">Today</a>
+            <main class="main">
+                <div class="container-lg">
+                    <div class="main__inner">
+                        <section class="setting-time py-4">
+                            <div class="container-lg">
+                                <div class="d-flex">
+                                    <div class="day me-5">26 June 2023</div>
+                                    <ul class="d-flex">
+                                        <li>
+                                            <a class="link active" href="#">Today</a>
+                                        </li>
+                                        <li class="mx-3">
+                                            <a class="link" href="#">Month</a>
+                                        </li>
+                                        <li>
+                                            <a class="link" href="#">Years</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="time-to-pray web time-1">
+                            <div class="time-to-pray__inner d-flex flex-column justify-content-center">
+                                <ul class="time-to-pray-list d-flex justify-content-between">
+                                    <li class="time-item active d-flex flex-column align-items-center">
+                                        <div class="desc"><span>Suhoor*</span></div>
+                                        <div class="time">04:01</div>
+                                        <div class="name">Fajr</div>
+                                        <div class="have-time"></div>
                                     </li>
-                                    <li class="mx-3">
-                                        <a class="link" href="#">Month</a>
+
+                                    <li class="sunrise  d-flex flex-column align-items-center">
+                                        <div class="sunrise-time">05:43</div>
+                                        <div class="name">Sunrise</div>
+                                        <div class="have-time">after 01:11</div>
                                     </li>
-                                    <li>
-                                        <a class="link" href="#">Years</a>
+
+                                    <li class="time-item  d-flex flex-column align-items-center">
+                                        <div class="time">13:27</div>
+                                        <div class="name">Zuhr</div>
+                                        <div class="have-time"></div>
+                                    </li>
+
+                                    <li class="time-item d-flex flex-column align-items-center">
+                                        <div class="time">18:45</div>
+                                        <div class="name">Asr</div>
+                                        <div class="have-time"></div>
+                                    </li>
+
+                                    <li class="time-item d-flex flex-column align-items-center">
+                                        <div class="desc"><span>Iftar*</span></div>
+                                        <div class="time">21:05</div>
+                                        <div class="name">Maghrib</div>
+                                        <div class="have-time"></div>
+                                    </li>
+
+                                    <li class="time-item d-flex flex-column align-items-center">
+                                        <div class="time">22:47</div>
+                                        <div class="name">Isha</div>
+                                        <div class="have-time"></div>
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-                    </section>
+                        </section>
 
-                    <section class="time-to-pray time-1">
-                        <div class="time-to-pray__inner d-flex flex-column justify-content-center">
-                            <ul class="d-flex justify-content-between">
-                                <li class="time-item  d-flex flex-column align-items-center">
-                                    <div class="desc"><span>Suhoor*</span></div>
-                                    <div class="time">04:01</div>
-                                    <div class="name">Fajr</div>
-                                    <div class="have-time"></div>
-                                </li>
+                        <section class="time-to-pray mobile time-1">
+                            <div class="container-lg">
+                                <div class="have-time">Time to Sunrise 01:11</div>
+                                <div class="time-to-pray__inner d-flex align-items-center">
+                                    <ul class="time-to-pray-list d-flex flex-column">
+                                        <li class="time-item d-flex align-items-center justify-content-between">
+                                            <div class="name active">Fajr</div>
+                                            <div class="d-flex align-items-center">
+                                                <div class="time active">04:01</div>
+                                                <div class="desc"><span>Suhoor*</span></div>
+                                            </div>
+                                        </li>
 
-                                <li class="sunrise active d-flex flex-column align-items-center">
-                                    <div class="sunrise-time">05:43</div>
-                                    <div class="name">Sunrise</div>
-                                    <div class="have-time"></div>
-                                </li>
+                                        <li class="sunrise d-flex align-items-center justify-content-between">
+                                            <div class="name">Sunrise</div>
+                                            <div class="d-flex align-items-center">
+                                                <div class="sunrise-time">05:43</div>
+                                                <div class="desc"></div>
+                                            </div>
+                                        </li>
 
-                                <li class="time-item d-flex flex-column align-items-center">
-                                    <div class="time">13:27</div>
-                                    <div class="name">Zuhr</div>
-                                    <div class="have-time">after 07:03</div>
-                                </li>
+                                        <li class="time-item d-flex align-items-center justify-content-between">
+                                            <div class="name">Zuhr</div>
+                                            <div class="d-flex align-items-center">
+                                                <div class="time">13:27</div>
+                                                <div class="desc"></div>
+                                            </div>
+                                        </li>
 
-                                <li class="time-item d-flex flex-column align-items-center">
-                                    <div class="time">18:45</div>
-                                    <div class="name">Asr</div>
-                                    <div class="have-time"></div>
-                                </li>
+                                        <li class="time-item d-flex align-items-center justify-content-between">
+                                            <div class="name">Asr</div>
+                                            <div class="d-flex align-items-center">
+                                                <div class="time">18:45</div>
+                                                <div class="desc"></div>
+                                            </div>
+                                        </li>
 
-                                <li class="time-item d-flex flex-column align-items-center">
-                                    <div class="desc"><span>Iftar*</span></div>
-                                    <div class="time">21:05</div>
-                                    <div class="name">Maghrib</div>
-                                    <div class="have-time"></div>
-                                </li>
+                                        <li class="time-item d-flex align-items-center justify-content-between">
+                                            <div class="name">Maghrib</div>
+                                            <div class="d-flex align-items-center">
+                                                <div class="time">21:05</div>
+                                                <div class="desc"><span>Iftar*</span></div>
+                                            </div>
+                                        </li>
 
-                                <li class="time-item d-flex flex-column align-items-center">
-                                    <div class="time">22:47</div>
-                                    <div class="name">Isha</div>
-                                    <div class="have-time"></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
+                                        <li class="time-item d-flex align-items-center justify-content-between">
+                                            <div class="name">Isha</div>
+                                            <div class="d-flex align-items-center">
+                                                <div class="time">22:47</div>
+                                                <div class="desc"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
 
 
-        <footer class="footer">
-            <div class="container">
-                <div>azan</div>
-            </div>
-        </footer>
+            <footer class="footer">
+                <div class="container-lg">
+                    <div>azan</div>
+                </div>
+            </footer>
+        </div>
     </body>
     <script type="module" src="/src/js/main.ts"></script>
 </html>

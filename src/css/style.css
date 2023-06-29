@@ -8,7 +8,9 @@ html {
     font-size: 15px;
 }
 
+html,
 body {
+    height: 100%;
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
@@ -27,15 +29,11 @@ a {
     text-decoration: none;
 }
 
-.main {
-    background: linear-gradient(to bottom,#f2f2f2 0,#fff 100%);
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
-
-.main__inner {
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
 
 /*Header
 ==================*/
@@ -66,6 +64,22 @@ a {
     border: 0;
     background-color: transparent;
     cursor: pointer;
+}
+
+
+/*Main
+==================*/
+.main {
+    flex: 1 1 auto;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background: linear-gradient(to bottom,#f2f2f2 0,#fff 100%);
+}
+
+.main__inner {
+    margin-bottom: 14px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 
@@ -105,15 +119,28 @@ a {
     z-index: 1;
 }
 
+.web {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
 .time-1 {
-    background-image: url("../images/time-imgs/bg-web/namaz-bg-web2.jpg");
+    background-image: url("../images/time-imgs/bg-mobile/namaz_bg_mobile1.jpg");
     background-repeat: no-repeat;
+    background-position: bottom;
 }
 
 
 .time-to-pray__inner {
-    height: 364px;
-    margin: 0 60px;
+    min-height: 364px;
+    margin: 0 50px;
+}
+
+.time-to-pray-list {
+    width: 100%;
 }
 
 .time-item {
@@ -142,7 +169,7 @@ a {
 }
 
 .time {
-    margin-bottom: 8px;
+    margin-bottom: 0;
     font-size: 34px;
     font-weight: lighter;
 }
@@ -159,30 +186,76 @@ a {
     margin-top: -70px;
 }
 
-
 /*Footer
 ==================*/
 .footer {
     width: 100%;
-    height: 100px;
     padding: 15px 0;
-    /*background-position: bottom;
-    background-repeat: no-repeat;*/
 
-    background-color: #eeeeee;
-
-    position: fixed;
-    bottom: 0;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.footer:before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 14px;
-    background-image: url("../images/oiu.svg");
-    background-repeat: repeat-x;
-    position: absolute;
-    bottom: 99px;
-    z-index: 1;
+@media (max-width: 987px) {
+    .web {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .have-time {
+        padding-top: 15px;
+        font-size: 20px;
+    }
+
+    .time-to-pray__inner {
+        min-height: 100%;
+        margin: 0;
+    }
+
+    .time-item {
+        width: 100%;
+        height: 100%;
+        padding-top: 0;
+        margin: 10px 0;
+    }
+
+    .desc {
+        float: right;
+        width: 80px;
+        padding: 10px;
+        position: initial;
+        text-align: end;
+    }
+
+    .name {
+        padding: 5px 15px;
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .time {
+        padding: 5px 15px;
+        font-size: 20px;
+    }
+
+    .active {
+        border-radius: 20px;
+    }
+
+    .sunrise {
+        width: 100%;
+        height: 100%;
+        padding-top: 0;
+        margin: 10px 0;
+    }
+
+    .sunrise-time {
+        padding: 5px 15px;
+        margin-bottom: 0;
+        font-size: 20px;
+        font-weight: lighter;
+    }
 }
