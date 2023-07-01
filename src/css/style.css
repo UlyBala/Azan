@@ -191,8 +191,13 @@ a {
     display: none;
 }
 
-.time-1 {
-    background-image: url("../images/time-imgs/bg-mobile/namaz_bg_mobile1.jpg");
+.time-web-1 {
+    background-image: url("../images/time-imgs/bg-web/namaz-bg-web1.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.time-mobile-1 {
     background-repeat: no-repeat;
     background-position: bottom;
 }
@@ -258,6 +263,7 @@ a {
     width: 100%;
     padding: 15px 0;
     background-color: #fff;
+    box-shadow: #0000003d 0 3px 8px;
 }
 
 @media (max-width: 987px) {
@@ -272,6 +278,10 @@ a {
 
     /*Main
     ==============*/
+    .time-mobile-1 {
+        background-image: url("../images/time-imgs/bg-mobile/namaz_bg_mobile1.jpg");
+    }
+
     .main__inner {
         margin-top: 60px;
         background-color: transparent;
@@ -367,6 +377,7 @@ a {
     ==============*/
     .footer {
         background-color: transparent;
+        box-shadow: none;
         position: fixed;
         bottom: 0;
         color: #fff;

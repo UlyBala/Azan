@@ -3,30 +3,33 @@ import {ITimezone} from "./interface/ITimezone.ts";
 import {IAzan, IAzanContent} from "./interface/IAzan.ts";
 import {IKeyDay} from "./interface/IKeyDay.ts";
 
-const azan = await getApiAzan('shymkent', 'kz')
-const today = await getApiTimeZone('shymkent ', 'kz')
+let azanData
+let timezone
+
+async function azan() {
+    azanData = await getApiAzan('shymkent', 'kz')
+    azanToday(azanData)
+
+    timezone = await getApiTimeZone('shymkent ', 'kz')
+    cutDate(timezone)
+}
+azan()
 
 
 function cutDate(day: ITimezone): string {
     let str: string = day.date_time_wti
     return str.slice(5, -15)
 }
-const day:string = cutDate(today)
-console.log(day + '----')
 
 
-function azanToday(azan: IAzan) {
+function azanToday(azan: IAzan): IKeyDay {
     const daysAzan: IAzanContent[] = azan.data
 
     const keyDay: IKeyDay = {};
     daysAzan.forEach((day: IAzanContent) => {
         let date: string = day.date.readable.split(' ').join('')
-        console.log(day)
         keyDay[date] = day.timings
-
     })
-
-    console.log(keyDay)
+    return keyDay
 }
 
-azanToday(azan)
