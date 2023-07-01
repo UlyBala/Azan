@@ -71,7 +71,6 @@ a {
 ==================*/
 .main {
     flex: 1 1 auto;
-    margin-bottom: 20px;
     overflow: hidden;
     background: linear-gradient(to bottom,#f2f2f2 0,#fff 100%);
 }
@@ -96,6 +95,71 @@ a {
 
 .link.active {
     color: #0F9DDB;
+}
+
+.setting-time__list {
+    display: flex;
+}
+
+.day {
+    margin-right: 10px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: transparent;
+    border: none;
+    font-size: 17px;
+    color: white;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    display: none;
+    position: relative;
+
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a.active {
+    background-color: transparent;
+    border-radius: unset;
+    color: #0F9DDB;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed #fff;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
 }
 
 
@@ -132,7 +196,6 @@ a {
     background-repeat: no-repeat;
     background-position: bottom;
 }
-
 
 .time-to-pray__inner {
     min-height: 364px;
@@ -194,12 +257,54 @@ a {
 .footer {
     width: 100%;
     padding: 15px 0;
-
     background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 @media (max-width: 987px) {
+    /*Header
+    ==============*/
+    .header {
+        width: 100%;
+        position: fixed;
+        background-color: transparent;
+        box-shadow: 0 0 10px rgba(0,0,0,.3);
+    }
+
+    /*Main
+    ==============*/
+    .main__inner {
+        margin-top: 60px;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+
+    /*Setting time
+    ==============*/
+    .setting-time__list {
+        display: none;
+    }
+
+    .day {
+        color: #fff;
+    }
+
+    .dropdown {
+        display: inline-block;
+    }
+
+    .sunrise-time {
+        color: #fff;
+    }
+
+    .have-time {
+        padding: 15px 0;
+        font-size: 20px;
+    }
+
+
+    /*Time to pray
+    ==============*/
     .web {
         display: none;
     }
@@ -208,9 +313,8 @@ a {
         display: block;
     }
 
-    .have-time {
-        padding: 15px 0;
-        font-size: 20px;
+    .time-to-pray:after {
+        content: none;
     }
 
     .time-to-pray__inner {
@@ -257,5 +361,14 @@ a {
     .time-item.active .time {
         background-color: #fff;
         border-radius: 20px;
+    }
+
+    /*Footer
+    ==============*/
+    .footer {
+        background-color: transparent;
+        position: fixed;
+        bottom: 0;
+        color: #fff;
     }
 }
