@@ -8,14 +8,14 @@ export interface ITimings {
     Asr: string,
     Dhuhr: string,
     Fajr: string,
-    Firstthird: string,
-    Imsak: string,
+    Firstthird?: string,
+    Imsak?: string,
     Isha: string,
-    Lastthird: string,
+    Lastthird?: string,
     Maghrib: string,
-    Midnight: string,
+    Midnight?: string,
     Sunrise: string,
-    Sunset: string
+    Sunset?: string
 }
 
 export interface IAzanContent {

@@ -72,7 +72,6 @@ a {
 .main {
     flex: 1 1 auto;
     overflow: hidden;
-    background: linear-gradient(to bottom,#f2f2f2 0,#fff 100%);
 }
 
 .main__inner {
@@ -195,11 +194,13 @@ a {
     background-image: url("../images/time-imgs/bg-web/namaz-bg-web1.jpg");
     background-repeat: no-repeat;
     background-position: bottom;
+    background-size: cover;
 }
 
 .time-mobile-1 {
     background-repeat: no-repeat;
     background-position: bottom;
+    background-size: cover;
 }
 
 .time-to-pray__inner {
@@ -378,8 +379,8 @@ a {
     .footer {
         background-color: transparent;
         box-shadow: none;
-        position: fixed;
-        bottom: 0;
+      /*  position: fixed;
+        bottom: 0;*/
         color: #fff;
     }
 }

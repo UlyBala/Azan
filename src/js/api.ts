@@ -1,8 +1,8 @@
 import {URLAZAN, URLTIMEZONE, APIKEYTIMEZONE} from "./config.ts";
 
-export async function getApiAzan(city: string, country: string) {
+export async function getApiAzan(year: number, month: number, city: string, country: string) {
     try {
-        const res = await fetch(`${URLAZAN}/2023/6?city=${city}&country=${country}&method=15`)
+        const res = await fetch(`${URLAZAN}/${year}/${month}?city=${city}&country=${country}&method=15`)
         return await res.json()
     } catch (e) {
         throw new Error('Error' + e)
