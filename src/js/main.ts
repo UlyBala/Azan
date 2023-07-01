@@ -85,3 +85,4 @@ function outPut(namaz: ITimings) {
         }
     })
 }
+

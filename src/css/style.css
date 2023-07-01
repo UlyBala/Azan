@@ -35,13 +35,47 @@ a {
     min-height: 100%;
 }
 
+
+/*Picture
+===============*/
+.picture {
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+}
+
+.picture.one--mobile {
+    background-image: url("../images/time-imgs/bg-mobile/namaz-bg-mobile1.jpg");
+}
+
+.picture.two--mobile {
+    background-image: url("../images/time-imgs/bg-mobile/namaz-bg-mobile2.jpg");
+}
+
+.picture.three--mobile {
+    background-image: url("../images/time-imgs/bg-mobile/namaz-bg-mobile3.jpg");
+}
+
+.picture.four--mobile {
+    background-image: url("../images/time-imgs/bg-mobile/namaz-bg-mobile4.jpg");
+}
+
+.picture.five--mobile {
+    background-image: url("../images/time-imgs/bg-mobile/namaz-bg-mobile5.jpg");
+}
+
+.picture.six--mobile {
+    background-image: url("../images/time-imgs/bg-mobile/namaz-bg-mobile6.jpg");
+}
+
+
 /*Header
 ==================*/
 .header {
-    background-color: #0F9DDB;
     background-image:  url(../images/header/header-bottom.png),url(../images/header/header-small-top.png),url(../images/header/header-small-bottom.png);
     background-position: center, top, bottom;
     background-repeat: repeat-x;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
 }
 
 .azan {
@@ -76,8 +110,6 @@ a {
 
 .main__inner {
     margin-bottom: 14px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 
@@ -87,22 +119,25 @@ a {
     font-size: 17px;
 }
 
+.day {
+    margin-right: 10px;
+    color: #fff;
+}
+
 .link {
     font-weight: bold;
-    color: #000;
+    color: #fff;
 }
 
 .link.active {
     color: #0F9DDB;
+    background-color: transparent;
 }
 
 .setting-time__list {
     display: flex;
 }
 
-.day {
-    margin-right: 10px;
-}
 
 /* Dropdown Button */
 .dropbtn {
@@ -113,14 +148,12 @@ a {
     cursor: pointer;
 }
 
-/* The container <div> - needed to position the dropdown content */
 .dropdown {
     display: none;
     position: relative;
 
 }
 
-/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -130,7 +163,6 @@ a {
     z-index: 1;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
@@ -144,10 +176,8 @@ a {
     color: #0F9DDB;
 }
 
-/* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #ddd;}
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
 .caret {
@@ -170,18 +200,6 @@ a {
     color: #fff;
 }
 
-.time-to-pray:after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 14px;
-    background-image: url("../images/oiu.svg");
-    background-repeat: repeat-x;
-    position: absolute;
-    bottom: -14px;
-    z-index: 1;
-}
-
 .web {
     display: block;
 }
@@ -190,28 +208,17 @@ a {
     display: none;
 }
 
-.time-web-1 {
-    background-image: url("../images/time-imgs/bg-web/namaz-bg-web1.jpg");
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: cover;
-}
-
-.time-mobile-1 {
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: cover;
-}
-
 .time-to-pray__inner {
     min-height: 364px;
-    margin: 0 50px;
 }
 
 .time-to-pray-list {
     width: 100%;
 }
 
+
+/*Time item
+==================*/
 .time-item {
     width: 140px;
     height: 140px;
@@ -248,10 +255,14 @@ a {
     font-size: 16px;
 }
 
+
+/*Sunrise
+==================*/
 .sunrise {
     width: 100px;
     height: 100px;
     margin-top: -70px;
+    padding-top: 33px;
 }
 
 .sunrise-time {
@@ -263,26 +274,20 @@ a {
 .footer {
     width: 100%;
     padding: 15px 0;
-    background-color: #fff;
-    box-shadow: #0000003d 0 3px 8px;
+    font-size: 20px;
+    color: #fff;
 }
 
-@media (max-width: 987px) {
+@media (max-width: 787px) {
     /*Header
     ==============*/
     .header {
         width: 100%;
         position: fixed;
-        background-color: transparent;
-        box-shadow: 0 0 10px rgba(0,0,0,.3);
     }
 
     /*Main
     ==============*/
-    .time-mobile-1 {
-        background-image: url("../images/time-imgs/bg-mobile/namaz_bg_mobile1.jpg");
-    }
-
     .main__inner {
         margin-top: 60px;
         background-color: transparent;
@@ -296,13 +301,10 @@ a {
         display: none;
     }
 
-    .day {
-        color: #fff;
-    }
-
     .dropdown {
         display: inline-block;
     }
+
 
     .sunrise-time {
         color: #fff;
@@ -372,15 +374,5 @@ a {
     .time-item.active .time {
         background-color: #fff;
         border-radius: 20px;
-    }
-
-    /*Footer
-    ==============*/
-    .footer {
-        background-color: transparent;
-        box-shadow: none;
-      /*  position: fixed;
-        bottom: 0;*/
-        color: #fff;
     }
 }
