@@ -1,6 +1,6 @@
 import {getApiAzan, getApiTimeZone} from "./api.ts";
 import {ITimezone} from "./interface/ITimezone.ts";
-import {IAzan, IAzanContent} from "./interface/IAzan.ts";
+import {IAzan, IAzanContent, ITimings} from "./interface/IAzan.ts";
 import {IKeyDay} from "./interface/IKeyDay.ts";
 
 const day = document.querySelector('.day') as HTMLElement
@@ -16,6 +16,7 @@ async function azan() {
     const keyDayObj: IKeyDay = keyDay(azanData)
 
     const today = todayAzan(cutDay, keyDayObj)
+    const sortTime = sortData(today)
     outPut(today)
 }
 azan()
@@ -44,7 +45,7 @@ function keyDay(azan: IAzan): IKeyDay {
 }
 
 
-function todayAzan(day: string, azan: IKeyDay): {} {
+function todayAzan(day: string, azan: IKeyDay): ITimings {
     const today: string = day.split(' ').join('')
 
     const arr = ['Imsak', 'Firstthird', 'Lastthird', 'Midnight', 'Sunset']
@@ -62,7 +63,17 @@ function todayAzan(day: string, azan: IKeyDay): {} {
         }
     }
 
-    return obj
+    return <ITimings>obj
+}
+
+
+function sortData(data: ITimings) {
+    const arr = []
+    for (let key in data) {
+        // @ts-ignore
+        arr.push(data[key])
+    }
+    return arr
 }
 
 
@@ -83,7 +94,7 @@ function capitalizeFirstLetter(str: string) {
 }
 
 
-function outPut(namaz: {}) {
+function outPut(namaz: ITimings) {
     const data: string[] = ['web', 'mobile']
 
     data.forEach(item => {
@@ -95,4 +106,3 @@ function outPut(namaz: {}) {
         }
     })
 }
-
