@@ -1,6 +1,6 @@
 import {getApiAzan, getApiTimeZone} from "./api.ts";
 import {ITimezone} from "./interface/ITimezone.ts";
-import {IAzan, IAzanContent, ITimings} from "./interface/IAzan.ts";
+import {IAzan, IAzanContent} from "./interface/IAzan.ts";
 import {IKeyDay} from "./interface/IKeyDay.ts";
 
 const day = document.querySelector('.day') as HTMLElement
@@ -16,9 +16,7 @@ async function azan() {
     const keyDayObj: IKeyDay = keyDay(azanData)
 
     const today = todayAzan(cutDay, keyDayObj)
-    if (typeof today === 'object') {
-        outPut(today)
-    }
+    outPut(today)
 }
 azan()
 
@@ -45,16 +43,26 @@ function keyDay(azan: IAzan): IKeyDay {
     return keyDayObj
 }
 
-function todayAzan(day: string, azan: IKeyDay): ITimings | undefined {
+
+function todayAzan(day: string, azan: IKeyDay): {} {
     const today: string = day.split(' ').join('')
+
+    const arr = ['Imsak', 'Firstthird', 'Lastthird', 'Midnight', 'Sunset']
+    const obj = {}
+
     if (today in azan) {
-        delete azan[today].Imsak
-        delete azan[today].Firstthird
-        delete azan[today].Lastthird
-        delete azan[today].Midnight
-        delete azan[today].Sunset
-        return azan[today]
+        for (let i = 0; i < arr.length; i++) {
+            // @ts-ignore
+            delete azan[today][arr[i]]
+        }
+
+        for (let key in azan[today]) {
+            // @ts-ignore
+            obj[key] = azan[today][key].slice(0, -6)
+        }
     }
+
+    return obj
 }
 
 
@@ -69,11 +77,13 @@ function getIdTime(str: string) {
     return [fajr, sunrise, dhuhr, asr, maghrib, isha]
 }
 
+
 function capitalizeFirstLetter(str: string) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function outPut(namaz: ITimings) {
+
+function outPut(namaz: {}) {
     const data: string[] = ['web', 'mobile']
 
     data.forEach(item => {
@@ -81,7 +91,7 @@ function outPut(namaz: ITimings) {
         for (let i = 0; i < dataSome.length; i++) {
             let keyById = capitalizeFirstLetter(dataSome[i].id.split("-")[0])
             // @ts-ignore
-            dataSome[i].innerHTML = namaz[keyById].slice(0, -5)
+            dataSome[i].innerHTML = namaz[keyById]
         }
     })
 }
