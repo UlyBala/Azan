@@ -5,16 +5,16 @@ export interface IAzan {
 }
 
 export interface ITimings {
-    Asr: string,
-    Dhuhr: string,
-    Fajr: string,
+    Asr?: string,
+    Dhuhr?: string,
+    Fajr?: string,
     Firstthird?: string,
     Imsak?: string,
-    Isha: string,
+    Isha?: string,
     Lastthird?: string,
-    Maghrib: string,
+    Maghrib?: string,
     Midnight?: string,
-    Sunrise: string,
+    Sunrise?: string,
     Sunset?: string
 }
 

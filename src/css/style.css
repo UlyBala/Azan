@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Roboto:wght@400;500;700&display=swap');
 
+:root {
+    --white: #fff;
+    --black: #000;
+    --blue: #6757dc;
+    --blue1: #0F9DDB;
+    --green: #4fa412;
+    --desert: #c68d3e;
+    --drak-blue: #480e7e;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -44,28 +54,34 @@ a {
     background-size: cover;
 }
 
-.picture.one--mobile {
-    background-image: url("../images/time-imgs/bg-mobile/namaz-bg-mobile1.jpg");
+.picture.one {
+    background-image: url("../images/time-imgs/bg/namaz-1.jpg");
+    color: var(--white);
 }
 
-.picture.two--mobile {
-    background-image: url("../images/time-imgs/bg-mobile/namaz-bg-mobile2.jpg");
+.picture.two {
+    background-image: url("../images/time-imgs/bg/namaz-2.jpg");
+    color: var(--blue);
 }
 
-.picture.three--mobile {
-    background-image: url("../images/time-imgs/bg-mobile/namaz-bg-mobile3.jpg");
+.picture.three {
+    background-image: url("../images/time-imgs/bg/namaz-3.jpg");
+    color: var(--green);
 }
 
-.picture.four--mobile {
-    background-image: url("../images/time-imgs/bg-mobile/namaz-bg-mobile4.jpg");
+.picture.four {
+    background-image: url("../images/time-imgs/bg/namaz-4.jpg");
+    color: var(--white);
 }
 
-.picture.five--mobile {
-    background-image: url("../images/time-imgs/bg-mobile/namaz-bg-mobile5.jpg");
+.picture.five {
+    background-image: url("../images/time-imgs/bg/namaz-5.jpg");
+    color: var(--white);
 }
 
-.picture.six--mobile {
-    background-image: url("../images/time-imgs/bg-mobile/namaz-bg-mobile6.jpg");
+.picture.six {
+    background-image: url("../images/time-imgs/bg/namaz-6.jpg");
+    color: var(--white);
 }
 
 
@@ -80,7 +96,7 @@ a {
 
 .azan {
     font-size: 25px;
-    color: #fff;
+    color: var(--white);
 }
 
 .icon {
@@ -121,17 +137,12 @@ a {
 
 .day {
     margin-right: 10px;
-    color: #fff;
+    color: inherit;
 }
 
 .link {
     font-weight: bold;
-    color: #fff;
-}
-
-.link.active {
-    color: #0F9DDB;
-    background-color: transparent;
+    color: inherit;
 }
 
 .setting-time__list {
@@ -144,7 +155,8 @@ a {
     background-color: transparent;
     border: none;
     font-size: 17px;
-    color: white;
+    color: inherit;
+    font-weight: bold;
     cursor: pointer;
 }
 
@@ -157,14 +169,14 @@ a {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: var(--white);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
 .dropdown-content a {
-    color: black;
+    color: var(--black);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -173,23 +185,12 @@ a {
 .dropdown-content a.active {
     background-color: transparent;
     border-radius: unset;
-    color: #0F9DDB;
+    color: var(--black);
 }
 
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
-
-.caret {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: 2px;
-    vertical-align: middle;
-    border-top: 4px dashed #fff;
-    border-right: 4px solid transparent;
-    border-left: 4px solid transparent;
-}
 
 
 /*Time to pray
@@ -197,22 +198,17 @@ a {
 .time-to-pray {
     min-height: 364px;
     position: relative;
-    color: #fff;
-}
-
-.web {
-    display: block;
-}
-
-.mobile {
-    display: none;
 }
 
 .time-to-pray__inner {
+    display: flex;
+    align-items: center;
     min-height: 364px;
 }
 
 .time-to-pray-list {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
 }
 
@@ -220,21 +216,27 @@ a {
 /*Time item
 ==================*/
 .time-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 140px;
     height: 140px;
     padding-top: 45px;
-    position: relative;
 }
 
 .active {
-    background-color: white;
+    background-color: var(--white);
     border-radius: 50%;
     color: #000;
 }
 
+.time-desc {
+    position: relative;
+}
+
 .desc {
     position: absolute;
-    top: 25px;
+    top: -20px;
 }
 
 .desc span{
@@ -274,27 +276,18 @@ a {
 .footer {
     width: 100%;
     padding: 15px 0;
+
+    background-color: #0a58ca;
+    background-image:  url(../images/header/header-bottom.png),url(../images/header/header-small-top.png),url(../images/header/header-small-bottom.png);
+    background-position: center, top, bottom;
+    background-repeat: repeat-x;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+
     font-size: 20px;
-    color: #fff;
+    color: var(--white);
 }
 
 @media (max-width: 787px) {
-    /*Header
-    ==============*/
-    .header {
-        width: 100%;
-        position: fixed;
-    }
-
-    /*Main
-    ==============*/
-    .main__inner {
-        margin-top: 60px;
-        background-color: transparent;
-        box-shadow: none;
-    }
-
-
     /*Setting time
     ==============*/
     .setting-time__list {
@@ -305,11 +298,6 @@ a {
         display: inline-block;
     }
 
-
-    .sunrise-time {
-        color: #fff;
-    }
-
     .have-time {
         padding: 15px 0;
         font-size: 20px;
@@ -318,14 +306,6 @@ a {
 
     /*Time to pray
     ==============*/
-    .web {
-        display: none;
-    }
-
-    .mobile {
-        display: block;
-    }
-
     .time-to-pray:after {
         content: none;
     }
@@ -335,7 +315,12 @@ a {
         margin: 0;
     }
 
+    .time-to-pray-list {
+        flex-direction: column;
+    }
     .time-item {
+        flex-direction: initial;
+        justify-content: space-between;
         width: 100%;
         height: 100%;
         padding-top: 0;
@@ -346,33 +331,49 @@ a {
         background-color: transparent;
     }
 
+    .time-desc {
+        order: 2;
+        display: flex;
+    }
+
     .desc {
-        float: right;
+        order: 3;
         width: 80px;
         padding: 10px;
         position: initial;
         text-align: end;
-        color: #fff;
+    }
+
+    .time {
+        order: 2;
+        display: flex;
+        align-items: center;
+        padding: 5px 15px;
+        font-size: 20px;
     }
 
     .name {
+        order: 1;
+        display: flex;
+        align-items: center;
         padding: 5px 15px;
         margin: 0;
         font-size: 20px;
     }
 
     .time-item.active .name {
-        background-color: #fff;
+        background-color: var(--white);
         border-radius: 20px;
+        color: var(--black);
     }
 
-    .time {
-        padding: 5px 15px;
-        font-size: 20px;
+    .have-time {
+        display: none;
     }
 
     .time-item.active .time {
-        background-color: #fff;
+        background-color: var(--white);
         border-radius: 20px;
+        color: var(--black);
     }
 }
