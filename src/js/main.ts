@@ -17,7 +17,7 @@ async function azan() {
 
     const today = todayAzan(cutDay, keyDayObj)
     const sortTime = sortData(today)
-    outPut(today)
+    outPut(sortTime)
 }
 azan()
 
@@ -67,7 +67,7 @@ function todayAzan(day: string, azan: IKeyDay): ITimings {
 }
 
 
-function sortData(data: ITimings) {
+function sortData(data: ITimings): any[] {
     const arr = []
     for (let key in data) {
         // @ts-ignore
@@ -76,33 +76,11 @@ function sortData(data: ITimings) {
     return arr
 }
 
+function outPut(data: any) {
+    const arr = [].concat(data, data)
+    const times: NodeListOf<Element> = document.querySelectorAll('.time')
 
-function getIdTime(str: string) {
-    const fajr = document.getElementById(`fajr-${str}`) as HTMLElement
-    const sunrise = document.getElementById(`sunrise-${str}`) as HTMLElement
-    const dhuhr = document.getElementById(`dhuhr-${str}`) as HTMLElement
-    const asr = document.getElementById(`asr-${str}`) as HTMLElement
-    const maghrib = document.getElementById(`maghrib-${str}`) as HTMLElement
-    const isha = document.getElementById(`isha-${str}`) as HTMLElement
-
-    return [fajr, sunrise, dhuhr, asr, maghrib, isha]
-}
-
-
-function capitalizeFirstLetter(str: string) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-
-function outPut(namaz: ITimings) {
-    const data: string[] = ['web', 'mobile']
-
-    data.forEach(item => {
-        const dataSome = getIdTime(item);
-        for (let i = 0; i < dataSome.length; i++) {
-            let keyById = capitalizeFirstLetter(dataSome[i].id.split("-")[0])
-            // @ts-ignore
-            dataSome[i].innerHTML = namaz[keyById]
-        }
-    })
+    for (let i = 0; i < times.length; i++) {
+        times[i].innerHTML = arr[i]
+    }
 }
