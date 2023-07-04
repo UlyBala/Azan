@@ -1,11 +1,11 @@
-import {URLAZAN, URLTIMEZONE, APIKEYTIMEZONE} from "./config.ts";
+import {URLAZAN, URLTIMEZONE, URLIPGEO, APIKEYTIMEZONE} from "./config.ts";
 
-export async function getApiAzan(year: number, month: number, city: string, country: string) {
+export async function getApiGeo() {
     try {
-        const res = await fetch(`${URLAZAN}/${year}/${month}?city=${city}&country=${country}&method=2`)
+        const res = await fetch(`${URLIPGEO}?apiKey=${APIKEYTIMEZONE}`)
         return await res.json()
     } catch (e) {
-        throw new Error('Error' + e)
+        throw new Error('Error: ' + e)
     }
 }
 
@@ -15,5 +15,14 @@ export async function getApiTimeZone(city: string, country: string) {
         return await res.json()
     } catch (e) {
         throw new Error('Error: ' + e)
+    }
+}
+
+export async function getApiAzan(year: number, month: number, city: string, country: string) {
+    try {
+        const res = await fetch(`${URLAZAN}/${year}/${month}?city=${city}&country=${country}&method=2`)
+        return await res.json()
+    } catch (e) {
+        throw new Error('Error' + e)
     }
 }

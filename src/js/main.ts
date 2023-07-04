@@ -1,21 +1,39 @@
-import {getApiAzan, getApiTimeZone} from "./api.ts";
+import {getApiAzan, getApiGeo, getApiTimeZone} from "./api.ts";
 import {ITimezone} from "./interface/ITimezone.ts";
 import {IAzan, IAzanContent, ITimings} from "./interface/IAzan.ts";
 import {IKeyDay} from "./interface/IKeyDay.ts";
 
 const day = document.querySelector('.day') as HTMLElement
+const city = document.querySelector('.city') as HTMLElement
 
+let cutDay: string
 let cutHour: string
+let arrayYearAndMonth: number[]
+
+let cityGeo: string
+let countryGeo: string
+
+async function getGeo() {
+    const geoloaction = await getApiGeo()
+    cityGeo = geoloaction.city
+    countryGeo = geoloaction.country_code2
+}
+await getGeo()
+
+async function getTimeZone() {
+    const timezone = await getApiTimeZone(cityGeo, countryGeo)
+    cutDay = cutDateDay(timezone)
+    cutHour = cutDateHour(timezone)
+
+    day.innerHTML = cutDay
+    city.innerHTML = timezone.geo.city
+
+    arrayYearAndMonth = getYearAndMonth(timezone)
+}
+await getTimeZone()
 
 async function azan() {
-    const timezone = await getApiTimeZone('shymkent ', 'kz')
-    const cutDay: string = cutDateDay(timezone)
-    cutHour = cutDateHour(timezone)
-    // console.log(cutHour)
-    day.innerHTML = cutDay
-    const array: number[] = getYearAndMonth(timezone)
-
-    const azanData = await getApiAzan(array[0],array[1],'shymkent', 'kz')
+    const azanData = await getApiAzan(arrayYearAndMonth[0],arrayYearAndMonth[1],cityGeo, countryGeo)
     const keyDayObj: IKeyDay = keyDay(azanData)
 
     const today = todayAzan(cutDay, keyDayObj)
@@ -24,7 +42,6 @@ async function azan() {
     dynamicActive(sortTime)
 }
 azan()
-
 
 function cutDateDay(day: ITimezone): string {
     return day.date_time_wti.slice(5, -15)
