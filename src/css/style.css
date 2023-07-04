@@ -43,6 +43,8 @@ a {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+    background-color: var(--blue1);
+    color: var(--white);
 }
 
 
@@ -224,10 +226,10 @@ a {
     padding-top: 45px;
 }
 
-.active {
+.time-item.active  {
     background-color: var(--white);
     border-radius: 50%;
-    color: #000;
+    color: var(--black);
 }
 
 .time-desc {
@@ -329,6 +331,7 @@ a {
 
     .time-item.active {
         background-color: transparent;
+        color: inherit;
     }
 
     .time-desc {

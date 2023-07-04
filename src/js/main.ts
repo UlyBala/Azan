@@ -5,7 +5,7 @@ import {IKeyDay} from "./interface/IKeyDay.ts";
 
 const day = document.querySelector('.day') as HTMLElement
 
-let cutHour: string = ''
+let cutHour: string
 
 async function azan() {
     const timezone = await getApiTimeZone('shymkent ', 'kz')
@@ -72,9 +72,10 @@ function todayAzan(day: string, azan: IKeyDay): ITimings {
     return obj
 }
 
-
-function sortData(data: ITimings): any[] {
-    const arr = []
+/* Можно ли решить ошибку при помощи generic*/
+/* https://stackoverflow.com/questions/56568423/typescript-no-index-signature-with-a-parameter-of-type-string-was-found-on-ty */
+function sortData(data: ITimings): string[] {
+    const arr: string[] = []
     for (let key in data) {
         // @ts-ignore
         arr.push(data[key])
@@ -86,14 +87,13 @@ const timeItem: NodeListOf<HTMLElement> = document.querySelectorAll('.time-item'
 
 function outPut(data: any) {
     const times: NodeListOf<HTMLElement> = document.querySelectorAll('.time')
-
     for (let i = 0; i < times.length; i++) {
         times[i].innerHTML = data[i]
         timeItem[i].id = data[i]
     }
 }
 
-const picture: Element | null = document.querySelector('.picture')
+const picture: HTMLElement = document.querySelector('.picture') as HTMLElement
 
 function dynamicActive(sorted: any) {
     let index = 0
@@ -106,16 +106,18 @@ function dynamicActive(sorted: any) {
         let simpleTime = new Date().setHours(+timeNow[0], +timeNow[1])
         let futureTime = new Date().setHours(+timeId2[0], +timeId2[1])
 
-        if(pastTime < simpleTime && !(simpleTime > futureTime)) {
-            // @ts-ignore
-            document.getElementById(timeItem[index].id).classList.add('active')
-            // @ts-ignore
-            let str: string = timeItem[index].attributes.getNamedItem('data-bg').value
-            // @ts-ignore
-            picture.classList.add(str)
+        let dataBg: string = (timeItem[index].attributes.getNamedItem('data-bg') as Attr).value
+        let dataBg1: string = (timeItem[i].attributes.getNamedItem('data-bg') as Attr).value
+
+        if(pastTime <= simpleTime && !(simpleTime >= futureTime)) {
+            timeItem[index].classList.add('active')
+            picture.classList.add(dataBg)
+            break
+        }
+        if (i === 5) {
+            timeItem[i].classList.add('active')
+            picture.classList.add(dataBg1)
         }
         index++
     }
-
 }
-
