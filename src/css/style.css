@@ -197,8 +197,7 @@ a {
 /*Time to pray
 ==================*/
 .time-to-pray {
-    min-height: 364px;
-    position: relative;
+   height: 100%;
 }
 
 .time-to-pray__inner {
