@@ -42,35 +42,34 @@
             <main class="main">
                 <div class="container-lg">
                     <div class="main__inner">
-                        <section class="main__content">
+                        <section style="display: none" class="main__content">
                             <div class="setting-time py-4">
-                                <div class="container-lg">
-                                    <div class="d-flex align-items-center">
-                                        <div class="city"></div>
-                                        <div class="day mx-3"></div>
-                                        <ul class="setting-time__list">
-                                            <li>
-                                                <a class="link" href="#">Today</a>
-                                            </li>
-                                            <li class="mx-3">
-                                                <a class="link" href="#">Month</a>
-                                            </li>
-                                            <li>
-                                                <a class="link" href="#">Year</a>
-                                            </li>
-                                        </ul>
+                                <div class="d-flex align-items-center">
+                                    <div class="city"></div>
+                                    <div class="day mx-3"></div>
+                                    <ul class="setting-time__list">
+                                        <li>
+                                            <a class="link" href="#">Today</a>
+                                        </li>
+                                        <li class="mx-3">
+                                            <a class="link" href="#">Month</a>
+                                        </li>
+                                        <li>
+                                            <a class="link" href="#">Year</a>
+                                        </li>
+                                    </ul>
 
-                                        <div class="dropdown">
-                                            <button class="dropbtn">Today</button>
-                                            <div class="dropdown-content">
-                                                <a class="active" href="#">Today</a>
-                                                <a href="#">Month</a>
-                                                <a href="#">Year</a>
-                                            </div>
+                                    <div class="dropdown">
+                                        <button class="dropbtn">Today</button>
+                                        <div class="dropdown-content">
+                                            <a class="active" href="#">Today</a>
+                                            <a href="#">Month</a>
+                                            <a href="#">Year</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="time-to-pray">
                                 <div class="time-to-pray__inner">
                                     <ul class="time-to-pray-list">
@@ -130,6 +129,10 @@
                                     </ul>
                                 </div>
                             </div>
+                        </section>
+
+                        <section style="display: block" class="loading-page">
+                            loading...
                         </section>
                     </div>
                 </div>

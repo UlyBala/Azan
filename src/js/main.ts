@@ -7,6 +7,8 @@ const day = document.querySelector('.day') as HTMLElement
 const city = document.querySelector('.city') as HTMLElement
 const search = (document.querySelector('.search') as HTMLInputElement)
 
+const mainContent = document.querySelector('.main__content') as HTMLElement
+const loadingPage = document.querySelector('.loading-page') as HTMLElement
 
 let cityGeo: string
 let countryGeo: string
@@ -32,6 +34,8 @@ function handleEnter(e: KeyboardEvent) {
         if (cityGeo === '' || countryGeo === undefined) {
             return
         }
+        mainContent.style.display = 'none'
+        loadingPage.style.display = 'block'
         getTimeZone()
     }
 }
@@ -161,4 +165,7 @@ function dynamicActive(sorted: any) {
         }
         index++
     }
+
+    mainContent.style.display = 'block'
+    loadingPage.style.display = 'none'
 }
