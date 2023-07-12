@@ -37,10 +37,12 @@ function handleEnter(e: KeyboardEvent) {
         mainContent.style.display = 'none'
         loadingPage.style.display = 'block'
         getTimeZone()
+        clearInterval(nInterval)
     }
 }
 
 
+let fullDay: string
 let cutDay: string
 let cutHour: string
 let arrayYearAndMonth: number[]
@@ -48,13 +50,58 @@ let arrayYearAndMonth: number[]
 async function getTimeZone() {
     const timezone = await getApiTimeZone(cityGeo, countryGeo)
 
+    fullDay = timezone.date_time
     cutDay = timezone.date_time_wti.slice(5, -15)
     cutHour = timezone.time_24.slice(0, -3)
     arrayYearAndMonth = [timezone.year, timezone.month]
-    day.innerHTML = timezone.date_time_wti.slice(5, -9)
+    day.innerHTML = cutDay
     city.innerHTML = timezone.geo.city
 
+    interval()
     azan()
+}
+
+
+const timeToday = document.querySelector('.time-today') as HTMLElement
+let hh: any
+let mm: any
+let ss: any
+let nInterval: any
+function interval() {
+    let arrayTime = fullDay.slice(11).split(':')
+    hh = +arrayTime[0]
+    mm = +arrayTime[1]
+    ss = +arrayTime[2]
+
+    nInterval = setInterval(intervalInner, 1000)
+}
+
+function intervalInner() {
+    if (hh === 24) {
+        hh = 0
+    }
+
+    if (mm === 60) {
+        mm = 0
+        hh++
+    }
+
+    if (ss === 60) {
+        ss = 0
+        mm++
+    } else {
+        ss++
+    }
+
+    hh = hh < 10 ? "0" + hh : hh
+    mm = mm < 10 ? "0" + mm : mm
+    ss = ss < 10 ? "0" + ss : ss
+
+    timeToday.innerHTML = `${hh}:${mm}`
+
+    hh = hh < 10 ? +hh.toString().slice(1) : hh
+    mm = mm < 10 ? +mm.toString().slice(1) : mm
+    ss = ss < 10 ? +ss.toString().slice(1) : ss
 }
 
 
